@@ -2,7 +2,7 @@ from requests import Session
 from sqlalchemy import Engine
 from sqlmodel import SQLModel, create_engine
 
-from api.database.seeds import seed_database
+from database.seeds import seed_database
 
 # TODO: Use environment variables to build Database URL
 database_name = "finances"

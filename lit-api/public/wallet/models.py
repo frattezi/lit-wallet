@@ -4,8 +4,8 @@ from sqlmodel import Field, Relationship, SQLModel
 
 
 if TYPE_CHECKING:
-    from api.public.user.models import User
-    from api.public.transaction.models import Transaction
+    from user.models import User
+    from transaction.models import Transaction
 
 
 class WalletBase(SQLModel):

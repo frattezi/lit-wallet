@@ -1,17 +1,14 @@
 [tool.poetry]
-name = "lit-api"
+name = "lit-app"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{ include = "lit-api" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.109.2"
-sqlmodel = "^0.0.16"
-uvicorn = { extras = ["standard"], version = "^0.27.1" }
-psycopg2-binary = "^2.9.9"
+streamlit = "^1.31.1"
+numpy = "^1.26.4"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.2.0"

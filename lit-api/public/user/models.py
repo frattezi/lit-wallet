@@ -4,7 +4,7 @@ import uuid
 from sqlmodel import Field, Relationship, SQLModel
 
 if TYPE_CHECKING:
-    from api.public.wallet.models import Wallet
+    from wallet.models import Wallet
 
 
 class UserRoles(enum.Enum):

@@ -1,9 +1,9 @@
 from sqlalchemy import Engine
 from sqlmodel import Session
 
-from api.public.transaction.models import Transaction
-from api.public.user.models import User, UserRoles
-from api.public.wallet.models import Wallet
+from public.transaction.models import Transaction
+from public.user.models import User, UserRoles
+from public.wallet.models import Wallet
 
 
 # TODO: Refactor

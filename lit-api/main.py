@@ -1,27 +1,17 @@
-from fastapi import Depends, FastAPI, Query
+from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
-from requests import Session
-
-from database.database import create_db_and_tables, get_session
+from .api import api as public_api
+from database.database import create_db_and_tables
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     create_db_and_tables()
-
     yield
 
 
 app = FastAPI()
 app.router.lifespan_context = lifespan
 
-
-@app.get("/users")
-async def read_users(
-    offset: int = 0,
-    limit: int = Query(default=100, lte=100),
-    db: Session = Depends(get_session),
-):
-    print("Im here!")
-    return read_users(offset=offset, limit=limit, db=db)
+app.include_router(public_api)

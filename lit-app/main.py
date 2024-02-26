@@ -1,9 +1,10 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from database.database import get_session
+from database.orm.user.crud import read_users
 
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=["lat", "lon"]
-)
+session = get_session()
+users = read_users(db=session)
 
-st.map(map_data)
+st.write(users)

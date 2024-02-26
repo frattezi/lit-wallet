@@ -28,15 +28,23 @@ So, before running the project. Remember to install docker and docker-compose. A
 ### API and streamlit app
 
 ```bash
+# Make sure you have poe installed
+pipx install poethepoet
+
 # Make sure you install the dependencies in the first run
 poetry install
 
-# Startup your virtual environment with poetry
-poetry shell
+# Now you can run commands with poe, find other commands in the pyproject.toml file
 
-# Starts FastApi API
-uvicorn api/main:app --reload
+# Starts up the api
+poe api
 
-# Starts Streamlit App
-streamlit run streamlit-app/main.py
+# Starts up the app
+poe app
+
+# Linting
+poe lint
+
+# Run tests -TBD
+poe test
 ```

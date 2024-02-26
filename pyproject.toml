@@ -1,21 +1,35 @@
 [tool.poetry]
-name = "lit-api"
+name = "lit-wallet"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-packages = [{ include = "lit-api" }]
+packages = [
+    { include = "lit-api" },
+    { include = "lit-app" },
+    { include = "database", from = "shared" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.109.2"
-sqlmodel = "^0.0.16"
+fastapi = "^0.110.0"
 uvicorn = { extras = ["standard"], version = "^0.27.1" }
+streamlit = "^1.31.1"
+numpy = "^1.26.4"
+pydantic = "^2.6.2"
+sqlmodel = "^0.0.16"
 psycopg2-binary = "^2.9.9"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.2.0"
+pytest = "^6.2.5"
+poethepoet = "^0.24.4"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+lint = "black ."
+api = "uvicorn lit-api.main:app --reload"
+app = "streamlit run lit-app/main.py"

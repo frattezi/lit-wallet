@@ -1,6 +1,4 @@
-from requests import Session
-from sqlalchemy import Engine
-from sqlmodel import SQLModel, create_engine
+from sqlmodel import SQLModel, Session, create_engine
 
 from database.seeds import seed_database
 
@@ -22,4 +20,4 @@ def create_db_and_tables():
 
 def get_session():
     with Session(engine) as session:
-        yield session
+        return session

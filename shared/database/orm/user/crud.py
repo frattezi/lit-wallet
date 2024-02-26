@@ -3,7 +3,7 @@ from fastapi import Depends, HTTPException, status
 from sqlmodel import Session, select
 
 from database.database import get_session
-from public.user.models import User, UserCreate, UserUpdate
+from database.orm.user.model import User, UserCreate, UserUpdate
 
 
 def create_user(user: UserCreate, db: Session = Depends(get_session)):
